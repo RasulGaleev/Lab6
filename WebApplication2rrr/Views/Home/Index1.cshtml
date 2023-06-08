@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WebApplication2rrr.Models.Phone>
+
+@{
+    ViewData["Title"] = "Список смартфонов";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Магазин смартфонов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        .buy-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            .buy-link:hover {
+                text-decoration: underline;
+            }
+
+        .home-button {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+            .home-button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h3>Смартфоны</h3>
+    <table>
+        <tr>
+            <th>Модель</th>
+            <th>Производитель</th>
+            <th>Цена</th>
+            <th></th>
+        </tr>
+        @foreach (var phone in Model)
+        {
+            <tr>
+                <td>@phone.Name</td>
+                <td>@phone.Company</td>
+                <td>@phone.Price</td>
+                <td><a href="~/Login/Login">Авторизируйтесь для покупки</a></td>
+            </tr>
+        }
+    </table>
+
+    <a href="/" class="home-button">На главную</a>
+</body>
+</html>
+

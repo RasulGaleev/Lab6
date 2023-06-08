@@ -1,0 +1,81 @@
+﻿@model WebApplication2rrr.Models.User
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-group input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+    }
+</style>
+
+<div class="container">
+    <h2>Login</h2>
+
+    @using (Html.BeginForm("LoginUser", "Login", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="UserName">Username:</label>
+            @Html.TextBoxFor(m => m.UserName, new { id = "UserName" })
+        </div>
+
+        <div class="form-group">
+            <label for="Password">Password:</label>
+            @Html.PasswordFor(m => m.Password, new { id = "Password" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Login" />
+        </div>
+    }
+</div>
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="error-message">@ViewBag.ErrorMessage</div>
+}

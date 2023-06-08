@@ -1,0 +1,96 @@
+﻿@model WebApplication2rrr.Models.User
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .form-group input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+            .form-group input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+</style>
+
+<div class="container">
+    <h1>Registration</h1>
+    @using (Html.BeginForm("RegisterUser", "Register", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name)
+        </div>
+        <div class="form-group">
+            @Html.Label("Sex")
+            <br />
+            @Html.RadioButtonFor(m => m.Sex, true) Male
+            <br />
+            @Html.RadioButtonFor(m => m.Sex, false) Female
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Role)
+            @Html.HiddenFor(m => m.Role)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.NumberTelephone)
+            @Html.TextBoxFor(m => m.NumberTelephone)
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Register" />
+        </div>
+    }
+</div>
