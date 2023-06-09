@@ -1,0 +1,15 @@
+﻿@model WebApplication2rrr.Models.User
+
+
+
+<div>
+    <h1>Профиль</h1>
+    <p class="neon-text">Никнейм: @Model.UserName</p>
+    <p class="neon-text">Имя: @Model.Name</p>
+    <p class="neon-text"">Номер телефона: @Model.NumberTelephone</p>
+
+    <div class="button-container">
+        <a class="button" href="/">Выйти</a>
+        <a class="button" href="/Home/Index/@Model.UserId">Создать заказ</a>
+    </div>
+</div>

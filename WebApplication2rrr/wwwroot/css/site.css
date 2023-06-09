@@ -1,18 +1,147 @@
+<style >
 html {
-  font-size: 14px;
+    font-size: 20px;
+    background-color: #121212;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 14px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+}
+
+p {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #000;
+    border: 1px solid #0ff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    background-color: #0ff;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+    .button:hover {
+        color: #fff;
+        background-color: #4862d2;
+    }
+
+.neon-text {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
+}
+
+table {
+    margin-bottom: 20px;
+    color: #fff;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #333333;
+    border: 1px solid #0ff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.success-message {
+    color: #fff;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #0ff;
+}
+
+tr:hover {
+    background-color: #666;
+}
+
+.buy-link {
+    color: #0ff;
+    text-decoration: none;
+}
+
+    .buy-link:hover {
+        text-decoration: underline;
+    }
+
+.home-button:hover {
+    background-color: #555;
+}
+
+.form-group {
+    margin: 10px 20px 20px 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #fff;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) inset;
+    color: #333;
+    transition: box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+.form-group input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #0ff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+    .form-group input[type="submit"]:hover {
+        color: #fff;
+        background-color: #4862d2;
+    }
+
+</style >

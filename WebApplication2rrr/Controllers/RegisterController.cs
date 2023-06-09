@@ -24,6 +24,13 @@ namespace WebApplication2rrr.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                var existingUser = _dbContext.Users.FirstOrDefault(u => u.UserName == user.UserName);
+                if (existingUser != null)
+                {
+                    ViewBag.ErrorMessage = "Пользователь с таким именем уже существует!";
+                    return View("~/Views/Authentication/Register.cshtml");
+                }
                 // Хэширование пароля
                 string hashedPassword = HashPassword(user.Password);
 
@@ -33,7 +40,6 @@ namespace WebApplication2rrr.Controllers
                     UserName = user.UserName,
                     Password = hashedPassword,
                     Name = user.Name,
-                    Role = string.IsNullOrEmpty(user.Role) ? "Not_admin" : user.Role,
                     NumberTelephone = user.NumberTelephone,
                     Sex = user.Sex
                 };
@@ -55,7 +61,7 @@ namespace WebApplication2rrr.Controllers
                     var principal = new ClaimsPrincipal(identity);
                     HttpContext.SignInAsync(principal).Wait();
 
-                    return RedirectToAction("PersonalArea", "Area"); // Перенаправление на личный кабинет после успешной регистрации
+                    return RedirectToAction("Profile", "Area"); // Перенаправление на личный кабинет после успешной регистрации
                 }
                 catch (Exception ex)
                 {

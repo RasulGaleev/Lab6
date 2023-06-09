@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication2rrr.Models;
 
@@ -35,9 +36,7 @@ namespace WebApplication2rrr.Controllers
             });
 
             db.SaveChanges();
-
-            ViewBag.SuccessMessage = "Thank you for your order!";
-
+            ViewBag.SuccessMessage = HttpUtility.JavaScriptStringEncode("Спасибо за покупку!");
             return View("~/Views/Buy/Buy.cshtml", phoneObj);
         }
     }

@@ -1,96 +1,46 @@
 ﻿@model WebApplication2rrr.Models.User
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-    }
-
-    .container {
-        width: 400px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            font-size: 14px;
-        }
-
-        .form-group input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #4caf50;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-            .form-group input[type="submit"]:hover {
-                background-color: #45a049;
-            }
-</style>
-
-<div class="container">
+<div>
     <h1>Registration</h1>
     @using (Html.BeginForm("RegisterUser", "Register", FormMethod.Post))
     {
         <div class="form-group">
-            @Html.LabelFor(m => m.UserName)
-            @Html.TextBoxFor(m => m.UserName)
+            <label class="neon-text">Никнейм</label>
+             @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(m => m.Password)
-            @Html.PasswordFor(m => m.Password)
+            <label class="neon-text">Пароль</label>
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name)
+            <label class="neon-text">Имя</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.Label("Sex")
+            <label class="neon-text">Пол</label>
             <br />
-            @Html.RadioButtonFor(m => m.Sex, true) Male
+            <label class="neon-text">
+                @Html.RadioButtonFor(m => m.Sex, true) Мужской
+            </label>
             <br />
-            @Html.RadioButtonFor(m => m.Sex, false) Female
+            <label class="neon-text">
+                @Html.RadioButtonFor(m => m.Sex, false) Женский
+            </label>
         </div>
         <div class="form-group">
-            @Html.LabelFor(m => m.Role)
-            @Html.HiddenFor(m => m.Role)
+            <label class="neon-text">Номер телефона</label>
+            @Html.TextBoxFor(m => m.NumberTelephone, new { @class = "form-control" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(m => m.NumberTelephone)
-            @Html.TextBoxFor(m => m.NumberTelephone)
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Register" />
+            <input type="submit" value="Register" class="btn btn-primary" />
         </div>
     }
 </div>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <script>
+        alert('@Html.Raw(ViewBag.ErrorMessage)');
+    </script>
+}
+

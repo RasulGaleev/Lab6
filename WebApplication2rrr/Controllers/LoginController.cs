@@ -4,6 +4,7 @@ using System.Linq;
 using BCrypt.Net;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using System.Web;
 
 namespace WebApplication2rrr.Controllers
 {
@@ -45,7 +46,7 @@ namespace WebApplication2rrr.Controllers
                 // Сохранение аутентификационных данных в HttpContext
                 HttpContext.SignInAsync(principal).Wait();
 
-                return RedirectToAction("PersonalArea", "Area"); // Перенаправление на другую страницу после успешной аутентификации
+                return RedirectToAction("Profile", "Area"); // Перенаправление на другую страницу после успешной аутентификации
             }
             else if (entranceUser == null || entranceUser.UserName == null)
             {

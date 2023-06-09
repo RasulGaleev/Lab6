@@ -10,7 +10,6 @@ namespace WebApplication2rrr.Models
         public string Password { get; set; }
         public string Name { get; set; }
         public bool Sex { get; set; }
-        public string? Role { get; set; }
         public string NumberTelephone { get; set; }
     }
 }

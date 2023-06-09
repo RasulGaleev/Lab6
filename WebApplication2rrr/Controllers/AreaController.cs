@@ -15,17 +15,17 @@ namespace WebApplication2rrr.Controllers
         }
 
         [HttpGet]
-        public IActionResult PersonalArea()
+        public IActionResult Profile()
         {
             var userId = User.FindFirstValue("UserId");
 
             if (int.TryParse(userId, out int id))
             {
                 var user = _dbContext.Users.FirstOrDefault(u => u.UserId == id);
-                return View("~/Views/Home/PersonalArea.cshtml", user);
+                return View("~/Views/Home/Profile.cshtml", user);
             }
 
-            return View("~/Views/Home/PersonalArea.cshtml");
+            return View("~/Views/Home/Profile.cshtml");
         }
     }
 }

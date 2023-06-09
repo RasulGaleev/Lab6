@@ -9,81 +9,32 @@
 <html>
 <head>
     <title>Магазин смартфонов</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h3 {
-            margin-top: 0;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        tr:hover {
-            background-color: #f0f0f0;
-        }
-
-        .buy-link {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-            .buy-link:hover {
-                text-decoration: underline;
-            }
-
-        .home-button {
-            display: inline-block;
-            padding: 8px 16px;
-            margin-top: 10px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-
-            .home-button:hover {
-                background-color: #0056b3;
-            }
-    </style>
+    <link rel="stylesheet" href="~/css//site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h3>Смартфоны</h3>
-    <table>
-        <tr>
-            <th>Модель</th>
-            <th>Производитель</th>
-            <th>Цена</th>
-            <th></th>
-        </tr>
-        @foreach (var phone in Model)
-        {
+    <div>
+        <h1>Смартфоны</h1>
+        <table>
             <tr>
-                <td>@phone.Name</td>
-                <td>@phone.Company</td>
-                <td>@phone.Price</td>
-                <td><a href="~/Login/Login">Авторизируйтесь для покупки</a></td>
+                <th class="neon-text">Модель</th>
+                <th class="neon-text">Производитель</th>
+                <th class="neon-text">Цена</th>
+                <th class="neon-text"></th>
             </tr>
-        }
-    </table>
+            @foreach (var phone in Model)
+            {
+                <tr>
+                    <td>@phone.Name</td>
+                    <td>@phone.Company</td>
+                    <td>@phone.Price</td>
+                    <td><a class="button" href="~/Login/Login">Авторизируйтесь для покупки</a></td>
+                </tr>
+            }
+        </table>
 
-    <a href="/" class="home-button">На главную</a>
+        <a href="/" class="button">На главную</a>
+    </div>
 </body>
 </html>
 
